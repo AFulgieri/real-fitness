@@ -1,3 +1,78 @@
+
+Claude finished the response
+
+Recalibrated pricing tiers and refreshed stored data
+Recalibrated pricing tiers and refreshed stored data
+Fixed — pricing is now:
+
+Foundations: $120/mo
+Momentum: $289/mo
+Full Support: $349/mo
+Same as before — re-upload this file to your repo to publish it.
+
+
+Index
+Code · HTML 
+where do i add the new code?
+
+Head to your GitHub repo, click on index.html in the file list, then click the pencil (edit) icon in the top right of the file view. Select all the existing code (Ctrl+A or Cmd+A) and delete it, then paste in the new file I gave you above. Scroll down and click "Commit changes" (same as before, directly to main).
+
+Once that's saved, give your site a minute, then refresh it to see the updated pricing.
+
+I deleted all the code and i downloaded the new one but I dont see the html code to put back in that space where i deleted it from
+
+
+Devised direct content-sharing solution for code retrieval
+Devised direct content-sharing solution for code retrieval
+That's a common snag — when you double-click the downloaded file, it opens in your browser and shows the actual website (not the code), so there's nothing to copy from there.
+
+Here's the fix — open it with a text editor instead:
+
+On Windows:
+
+Right-click the downloaded index.html file
+Choose "Open with" → Notepad
+On Mac:
+
+Right-click the downloaded index.html file
+Choose "Open with" → TextEdit
+That'll show you the raw code as text. Then:
+
+Select all (Ctrl+A or Cmd+A)
+Copy (Ctrl+C or Cmd+C)
+Go back to your browser tab with the empty GitHub edit box
+Click inside it and paste (Ctrl+V or Cmd+V)
+Scroll down and click "Commit changes"
+Let me know once you've got the code pasted in and I'll help with anything else.
+
+It doesnt give me the option to open in notepad when i right click on it
+
+
+Circumvented file access complications by embedding code directly
+Circumvented file access complications by embedding code directly
+Let's skip the download entirely — I'll just give you the code directly here so you can copy it straight from this chat. That avoids the file-opening hassle completely.
+
+Click the code block below, select all the text inside it (there should be a copy icon in the corner, or you can click inside and press Ctrl+A / Cmd+A), copy it, then paste it into the empty GitHub edit box.
+
+
+Pivoted toward alternative file-viewing method instead
+Pivoted toward alternative file-viewing method instead
+No problem — let's skip local files entirely. You can copy the code straight from GitHub without downloading anything:
+
+In your repo, click on the index.html file (the old one, or wherever the file browser is)
+Look for a button labeled "Raw" near the top of the file view
+Click Raw — this shows the plain code as text right in your browser
+Click anywhere in that page, press Ctrl+A (or Cmd+A on Mac) to select everything, then Ctrl+C (or Cmd+C) to copy
+Go back to the tab where you have the empty GitHub edit box (where you deleted the old code)
+Click inside it and paste with Ctrl+V (or Cmd+V)
+Wait — that would just paste back the old code, not my updated version. Let me give you the new code directly here instead so there's no confusion. Give me one moment.
+
+
+Output full updated HTML to paste inline for the user
+Output full updated HTML to paste inline for the user
+Here's the full code — copy everything inside the box below (there's usually a copy icon in the top corner of the code block) and paste it into your empty GitHub edit box:
+
+html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -151,6 +226,7 @@
     color:#a89a92; font-size:13px; font-weight:600; text-align:center; padding:16px;
     border-right:1px solid var(--line);
   }
+  .trainer-photo img{width:100%; height:100%; object-fit:cover; display:block;}
   .trainer-body{padding:26px 24px;}
   .trainer-body h3{color:var(--plum); font-size:20px;}
   .trainer-role{color:var(--sienna); font-size:12.5px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; margin:6px 0 12px;}
@@ -235,7 +311,7 @@
 <header class="hero">
   <div class="wrap">
     <div>
-      <p class="eyebrow">Virtual personal training for women</p>
+      <p class="eyebrow">Real Exercise for Active Living</p>
       <h1>Building strength for the <em>life you live.</em></h1>
       <p class="lead">Real, one-on-one training — from home, on your schedule, with no gym floor to walk onto. Built for women who want a program shaped around their actual body, history, and goals, including women navigating GLP-1 medications.</p>
       <div class="hero-ctas">
@@ -269,19 +345,19 @@
     </div>
     <div class="trainers">
       <div class="trainer-card">
-        <div class="trainer-photo">Photo of<br>Angela Fulgieri</div>
+        <div class="trainer-photo"><img src="angela.jpg" alt="Angela Fulgieri" onerror="this.style.display='none'; this.parentElement.innerText='Photo of Angela Fulgieri';"></div>
         <div class="trainer-body">
           <h3>Angela Fulgieri</h3>
           <div class="trainer-role">Founder &amp; Personal Trainer</div>
-          <p>Bio coming soon — add Angela's background, certifications, and coaching philosophy here.</p>
+          <p>Angela brings over 20 years in the fitness industry as a certified group exercise instructor and certified personal trainer. She has led fitness improvement programs on military bases and worked across many gyms leading group exercise classes to help people get stronger, fitter, and more flexible. She's passionate about helping people reach their goals — especially first-time exercisers getting started and staying consistent.</p>
         </div>
       </div>
       <div class="trainer-card">
-        <div class="trainer-photo">Photo of<br>Janice Diggens</div>
+        <div class="trainer-photo"><img src="janice.jpg" alt="Janice Diggens" onerror="this.style.display='none'; this.parentElement.innerText='Photo of Janice Diggens';"></div>
         <div class="trainer-body">
           <h3>Janice Diggens</h3>
           <div class="trainer-role">GLP‑1 Specialist &amp; Personal Trainer</div>
-          <p>Bio coming soon — add Janice's background, certifications, and GLP‑1 coaching experience here.</p>
+          <p>Janice is a highly experienced personal trainer and group exercise instructor who specializes in training clients navigating weight loss through GLP‑1 medications. She helps clients protect strength and muscle while adjusting programming to match their changing energy and needs.</p>
         </div>
       </div>
     </div>
@@ -331,19 +407,20 @@
       <div class="card">
         <h3>Foundations</h3>
         <p>For anyone new to strength training or coming back after time off. Focus on form, consistency, and building confidence.</p>
-        <div class="price">4 sessions / month</div>
+        <div class="price">4 sessions / month — $120/mo</div>
       </div>
       <div class="card">
         <h3>Momentum</h3>
         <p>Progressive strength programming for clients ready to push toward a specific goal — a race, an event, a number on the bar.</p>
-        <div class="price">8 sessions / month</div>
+        <div class="price">8 sessions / month — $289/mo</div>
       </div>
       <div class="card">
         <h3>Full Support</h3>
         <p>Unlimited messaging, nutrition check-ins, and twice-weekly live sessions for clients who want a true training partner.</p>
-        <div class="price">12 sessions / month</div>
+        <div class="price">12 sessions / month — $349/mo</div>
       </div>
     </div>
+    <p style="text-align:center; margin-top:32px; color:#e6dcd6; font-size:14.5px;">Ask about eating plans.</p>
   </div>
 </section>
 
@@ -378,7 +455,7 @@
       <div class="prep-card">
         <h3>Health &amp; Goals Intake</h3>
         <p>Tell us about your training history, any injuries or limitations, medications (including GLP-1s), and what you're working toward. This shapes your entire plan.</p>
-        <a class="pill-link" href="#">Fill out your intake form</a>
+        <a class="pill-link" href="#intake">Fill out your intake form</a>
       </div>
       <div class="prep-card">
         <h3>Liability Release</h3>
@@ -386,6 +463,47 @@
         <a class="pill-link" href="#">Sign your waiver</a>
       </div>
     </div>
+  </div>
+</section>
+
+<section id="intake" style="background:var(--sand);">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Health &amp; Goals Intake</p>
+      <h2>Tell us about you</h2>
+      <p>Takes about 5 minutes. We'll use this to shape your training plan.</p>
+    </div>
+    <form class="intake-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" style="max-width:640px; margin:0 auto; display:grid; gap:18px;">
+      <div style="display:grid; gap:6px;">
+        <label for="i-name" style="font-weight:600; font-size:14px; color:var(--plum);">Full name</label>
+        <input id="i-name" name="Full name" type="text" required style="padding:12px 14px; border-radius:10px; border:1px solid var(--line); font-family:inherit; font-size:15px;">
+      </div>
+      <div style="display:grid; gap:6px;">
+        <label for="i-email" style="font-weight:600; font-size:14px; color:var(--plum);">Email</label>
+        <input id="i-email" name="Email" type="email" required style="padding:12px 14px; border-radius:10px; border:1px solid var(--line); font-family:inherit; font-size:15px;">
+      </div>
+      <div style="display:grid; gap:6px;">
+        <label for="i-phone" style="font-weight:600; font-size:14px; color:var(--plum);">Phone</label>
+        <input id="i-phone" name="Phone" type="tel" style="padding:12px 14px; border-radius:10px; border:1px solid var(--line); font-family:inherit; font-size:15px;">
+      </div>
+      <div style="display:grid; gap:6px;">
+        <label for="i-history" style="font-weight:600; font-size:14px; color:var(--plum);">Training history</label>
+        <textarea id="i-history" name="Training history" rows="3" style="padding:12px 14px; border-radius:10px; border:1px solid var(--line); font-family:inherit; font-size:15px; resize:vertical;"></textarea>
+      </div>
+      <div style="display:grid; gap:6px;">
+        <label for="i-injuries" style="font-weight:600; font-size:14px; color:var(--plum);">Injuries or limitations</label>
+        <textarea id="i-injuries" name="Injuries or limitations" rows="3" style="padding:12px 14px; border-radius:10px; border:1px solid var(--line); font-family:inherit; font-size:15px; resize:vertical;"></textarea>
+      </div>
+      <div style="display:grid; gap:6px;">
+        <label for="i-meds" style="font-weight:600; font-size:14px; color:var(--plum);">Current medications (including GLP-1s, if any)</label>
+        <textarea id="i-meds" name="Medications" rows="2" style="padding:12px 14px; border-radius:10px; border:1px solid var(--line); font-family:inherit; font-size:15px; resize:vertical;"></textarea>
+      </div>
+      <div style="display:grid; gap:6px;">
+        <label for="i-goals" style="font-weight:600; font-size:14px; color:var(--plum);">What are you working toward?</label>
+        <textarea id="i-goals" name="Goals" rows="3" style="padding:12px 14px; border-radius:10px; border:1px solid var(--line); font-family:inherit; font-size:15px; resize:vertical;"></textarea>
+      </div>
+      <button type="submit" class="btn-primary" style="border:none; cursor:pointer; justify-self:start;">Submit intake form</button>
+    </form>
   </div>
 </section>
 
@@ -440,3 +558,4 @@
 
 </body>
 </html>
+
