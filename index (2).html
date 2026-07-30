@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>real. Fitness — Building Strength for the Life You Live</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --plum:#4E2036;
+    --sienna:#B0523A;
+    --gold:#D8A448;
+    --sage:#7C8B6B;
+    --sand:#F3E9DC;
+    --cream:#FBF7F1;
+    --ink:#2A2220;
+    --line: rgba(42,34,32,0.14);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    font-size:17px;
+    line-height:1.6;
+  }
+  h1,h2,h3, .display{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    margin:0;
+  }
+  a{color:inherit;}
+  .wrap{max-width:1120px; margin:0 auto; padding:0 28px;}
+  .eyebrow{
+    font-family:'Work Sans',sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.14em;
+    font-size:12.5px;
+    font-weight:600;
+    color:var(--sienna);
+  }
+
+  /* NAV */
+  nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(251,247,241,0.9);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{display:flex; align-items:center; justify-content:space-between; height:74px;}
+  .brand{font-family:'Fraunces',serif; font-weight:600; font-size:21px; color:var(--plum);}
+  .brand span{color:var(--sienna);}
+  .navlinks{display:flex; gap:32px; font-size:14.5px; font-weight:500;}
+  .navlinks a{text-decoration:none; opacity:0.8; transition:opacity .2s;}
+  .navlinks a:hover{opacity:1;}
+  .navcta{
+    background:var(--plum); color:var(--cream); padding:10px 20px; border-radius:999px;
+    font-size:14px; font-weight:600; text-decoration:none; transition:transform .15s, background .2s;
+    display:inline-block;
+  }
+  .navcta:hover{background:var(--sienna); transform:translateY(-1px);}
+
+  /* HERO */
+  .hero{position:relative; overflow:hidden; padding:96px 0 120px;}
+  .hero .wrap{position:relative; z-index:2; display:grid; grid-template-columns:1.15fr 0.85fr; gap:56px; align-items:center;}
+  .hero h1{font-size:clamp(38px,5vw,60px); line-height:1.05; color:var(--plum);}
+  .hero h1 em{font-style:italic; color:var(--sienna);}
+  .hero p.lead{font-size:19px; max-width:46ch; margin:22px 0 32px; color:#4a3f3b;}
+  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--sienna); color:var(--cream); padding:15px 28px; border-radius:999px;
+    font-weight:600; font-size:15px; text-decoration:none; display:inline-block;
+    transition:transform .15s, box-shadow .2s;
+    box-shadow:0 6px 18px rgba(176,82,58,0.28);
+  }
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 10px 22px rgba(176,82,58,0.34);}
+  .btn-secondary{
+    border:1.5px solid var(--plum); color:var(--plum); padding:14px 26px; border-radius:999px;
+    font-weight:600; font-size:15px; text-decoration:none; display:inline-block; transition:background .2s;
+  }
+  .btn-secondary:hover{background:rgba(78,32,54,0.06);}
+
+  /* Signature: bold stacked stat blocks */
+  .stat-stack{position:relative; height:420px;}
+  .stat-block{
+    position:absolute; border-radius:22px; padding:26px 28px; box-shadow:0 18px 40px rgba(42,34,32,0.18);
+    opacity:0; transform:translateY(24px);
+    animation:rise .6s cubic-bezier(.2,.8,.2,1) forwards;
+  }
+  .stat-block .num{font-family:'Fraunces',serif; font-weight:700; font-size:44px; line-height:1;}
+  .stat-block .lbl{font-size:13px; font-weight:600; margin-top:8px; text-transform:uppercase; letter-spacing:.06em;}
+  .stat-a{
+    background:var(--sienna); color:var(--cream);
+    top:0; left:6%; width:280px; transform:translateY(24px) rotate(-3deg);
+    animation-delay:.1s;
+  }
+  .stat-b{
+    background:var(--plum); color:var(--sand);
+    top:150px; left:34%; width:250px; transform:translateY(24px) rotate(2deg);
+    animation-delay:.35s;
+  }
+  .stat-c{
+    background:var(--gold); color:var(--ink);
+    top:290px; left:2%; width:230px; transform:translateY(24px) rotate(-2deg);
+    animation-delay:.55s;
+  }
+  @keyframes rise{ to{opacity:1; transform:translateY(0) rotate(var(--r,0deg));} }
+  .stat-a{--r:-3deg;} .stat-b{--r:2deg;} .stat-c{--r:-2deg;}
+
+  @media (max-width:860px){
+    .hero .wrap{grid-template-columns:1fr;}
+    .stat-stack{height:340px;}
+    .stat-block{position:static; transform:none !important; margin-bottom:16px; width:100% !important;}
+  }
+
+  /* SECTION scaffolding */
+  section{padding:88px 0;}
+  .section-head{max-width:640px; margin:0 auto 52px; text-align:center;}
+  .section-head h2{font-size:clamp(28px,3.4vw,38px); color:var(--plum); margin-top:10px;}
+  .section-head p{color:#5a4f4a; margin-top:14px; font-size:16.5px;}
+
+  /* HOW IT WORKS - real sequence, numbers earned */
+  .steps{display:grid; grid-template-columns:repeat(4,1fr); gap:0; position:relative;}
+  .steps::before{
+    content:""; position:absolute; top:26px; left:6%; right:6%; height:1.5px;
+    background:repeating-linear-gradient(90deg, var(--sienna) 0 8px, transparent 8px 16px);
+  }
+  .step{position:relative; padding:0 18px; text-align:left;}
+  .step .num{
+    width:52px; height:52px; border-radius:50%; background:var(--cream); border:1.5px solid var(--sienna);
+    color:var(--sienna); font-family:'Fraunces',serif; font-weight:600; font-size:19px;
+    display:flex; align-items:center; justify-content:center; margin-bottom:20px; position:relative; z-index:2;
+  }
+  .step h3{font-size:18px; color:var(--plum); margin-bottom:8px;}
+  .step p{font-size:14.5px; color:#5a4f4a;}
+  @media (max-width:860px){ .steps{grid-template-columns:1fr; gap:36px;} .steps::before{display:none;} }
+
+  /* TRAINERS */
+  .trainers{display:grid; grid-template-columns:1fr 1fr; gap:28px;}
+  .trainer-card{
+    background:var(--cream); border:1px solid var(--line); border-radius:22px; overflow:hidden;
+    display:grid; grid-template-columns:180px 1fr;
+  }
+  .trainer-photo{
+    background:var(--sand); display:flex; align-items:center; justify-content:center;
+    color:#a89a92; font-size:13px; font-weight:600; text-align:center; padding:16px;
+    border-right:1px solid var(--line);
+  }
+  .trainer-body{padding:26px 24px;}
+  .trainer-body h3{color:var(--plum); font-size:20px;}
+  .trainer-role{color:var(--sienna); font-size:12.5px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; margin:6px 0 12px;}
+  .trainer-body p{font-size:14px; color:#5a4f4a;}
+  @media (max-width:860px){
+    .trainers{grid-template-columns:1fr;}
+    .trainer-card{grid-template-columns:1fr;}
+    .trainer-photo{border-right:none; border-bottom:1px solid var(--line); height:160px;}
+  }
+  .services-band{background:var(--plum); color:var(--sand);}
+  .services-band .section-head p{color:#d9c9c2;}
+  .services-band .eyebrow{color:var(--gold);}
+  .cards{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+  .card{
+    background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.14); border-radius:18px;
+    padding:32px 28px; transition:transform .2s, background .2s;
+  }
+  .card:hover{transform:translateY(-4px); background:rgba(255,255,255,0.09);}
+  .card h3{color:var(--gold); font-size:20px; margin-bottom:10px;}
+  .card p{font-size:14.5px; color:#e6dcd6;}
+  .card .price{margin-top:16px; font-weight:600; font-size:13px; letter-spacing:.03em; color:#c9b6ae; text-transform:uppercase;}
+  @media (max-width:860px){ .cards{grid-template-columns:1fr;} }
+
+  /* FORMS + WAIVER */
+  .prep-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
+  .prep-card{background:var(--sand); border-radius:18px; padding:30px; border:1px solid var(--line);}
+  .prep-card h3{color:var(--plum); font-size:19px; margin-bottom:8px;}
+  .prep-card p{font-size:14.5px; color:#5a4f4a; margin-bottom:18px;}
+  .pill-link{
+    display:inline-flex; align-items:center; gap:8px; font-weight:600; font-size:14px; color:var(--sienna); text-decoration:none;
+  }
+  .pill-link:after{content:"→"; transition:transform .15s;}
+  .pill-link:hover:after{transform:translateX(3px);}
+  @media (max-width:860px){ .prep-grid{grid-template-columns:1fr;} }
+
+  /* BOOKING */
+  .booking{background:var(--sand);}
+  .calendly-frame{
+    background:var(--cream); border:1px dashed var(--sienna); border-radius:18px;
+    min-height:640px; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:10px;
+    text-align:center; padding:40px; color:#7a6d67;
+  }
+  .calendly-frame strong{color:var(--plum); font-family:'Fraunces',serif; font-size:20px; font-weight:600;}
+
+  /* TESTIMONIALS */
+  .testi-row{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+  .testi{background:var(--cream); border:1px solid var(--line); border-radius:18px; padding:28px;}
+  .testi p{font-size:15px; color:#4a3f3b; font-style:italic;}
+  .testi .who{margin-top:16px; font-size:13.5px; font-weight:600; color:var(--plum); font-style:normal;}
+  @media (max-width:860px){ .testi-row{grid-template-columns:1fr;} }
+
+  /* FOOTER */
+  footer{background:var(--ink); color:#cfc4bd; padding:56px 0 32px;}
+  footer .wrap{display:flex; justify-content:space-between; flex-wrap:wrap; gap:24px;}
+  footer .brand{color:var(--cream);}
+  footer .fine{font-size:12.5px; color:#9a8f89; margin-top:28px;}
+
+  ::selection{background:var(--gold); color:var(--ink);}
+  :focus-visible{outline:2px solid var(--sienna); outline-offset:3px;}
+  @media (prefers-reduced-motion: reduce){
+    .arc-path, .arc-dot{animation:none !important; stroke-dashoffset:0 !important; opacity:1 !important;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">real<span>.</span> Fitness</div>
+    <div class="navlinks">
+      <a href="#services">Services</a>
+      <a href="#trainers">Trainers</a>
+      <a href="#glp1">GLP-1 Support</a>
+      <a href="#how">How it works</a>
+      <a href="#prep">Getting started</a>
+      <a href="#testimonials">Stories</a>
+    </div>
+    <a class="navcta" href="#booking">Book a consult</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Virtual personal training for women</p>
+      <h1>Building strength for the <em>life you live.</em></h1>
+      <p class="lead">Real, one-on-one training — from home, on your schedule, with no gym floor to walk onto. Built for women who want a program shaped around their actual body, history, and goals, including women navigating GLP-1 medications.</p>
+      <div class="hero-ctas">
+        <a class="btn-primary" href="#booking">Book your free consult</a>
+        <a class="btn-secondary" href="#services">See services</a>
+      </div>
+    </div>
+    <div class="stat-stack" aria-hidden="true">
+      <div class="stat-block stat-a">
+        <div class="num">100%</div>
+        <div class="lbl">Virtual — train from home</div>
+      </div>
+      <div class="stat-block stat-b">
+        <div class="num">1:1</div>
+        <div class="lbl">Coaching, every session</div>
+      </div>
+      <div class="stat-block stat-c">
+        <div class="num">GLP‑1</div>
+        <div class="lbl">Specialist on staff</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="trainers">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Your coaches</p>
+      <h2>Meet your trainers</h2>
+      <p>Two trainers, one focus: strength training that actually fits your life.</p>
+    </div>
+    <div class="trainers">
+      <div class="trainer-card">
+        <div class="trainer-photo">Photo of<br>Angela Fulgieri</div>
+        <div class="trainer-body">
+          <h3>Angela Fulgieri</h3>
+          <div class="trainer-role">Founder &amp; Personal Trainer</div>
+          <p>Bio coming soon — add Angela's background, certifications, and coaching philosophy here.</p>
+        </div>
+      </div>
+      <div class="trainer-card">
+        <div class="trainer-photo">Photo of<br>Janice Diggens</div>
+        <div class="trainer-body">
+          <h3>Janice Diggens</h3>
+          <div class="trainer-role">GLP‑1 Specialist &amp; Personal Trainer</div>
+          <p>Bio coming soon — add Janice's background, certifications, and GLP‑1 coaching experience here.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">The process</p>
+      <h2>From first hello to your first rep</h2>
+      <p>Four steps, in order — each one sets up the next.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="num">1</div>
+        <h3>Book a free consult</h3>
+        <p>A short call to talk through where you're at and what you want to change.</p>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <h3>Fill out your intake</h3>
+        <p>Share your training history and goals so your plan fits your actual body.</p>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <h3>Sign your waiver</h3>
+        <p>A quick digital liability release — required before your first session.</p>
+      </div>
+      <div class="step">
+        <div class="num">4</div>
+        <h3>Start training</h3>
+        <p>Book recurring sessions directly on the calendar and get moving.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services-band" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Services</p>
+      <h2>Coaching built around your goals</h2>
+      <p>Every package includes live 1:1 coaching, a custom plan, and check-ins between sessions.</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <h3>Foundations</h3>
+        <p>For anyone new to strength training or coming back after time off. Focus on form, consistency, and building confidence.</p>
+        <div class="price">4 sessions / month</div>
+      </div>
+      <div class="card">
+        <h3>Momentum</h3>
+        <p>Progressive strength programming for clients ready to push toward a specific goal — a race, an event, a number on the bar.</p>
+        <div class="price">8 sessions / month</div>
+      </div>
+      <div class="card">
+        <h3>Full Support</h3>
+        <p>Unlimited messaging, nutrition check-ins, and twice-weekly live sessions for clients who want a true training partner.</p>
+        <div class="price">12 sessions / month</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="glp1">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Specialized support</p>
+      <h2>Training for women on GLP-1 medications</h2>
+      <p>Rapid weight loss changes what your body needs from a workout. Your program is adjusted for energy levels, and built to protect strength and muscle while the medication does its part.</p>
+    </div>
+    <div class="prep-grid">
+      <div class="prep-card">
+        <h3>Strength-first programming</h3>
+        <p>Resistance training prioritized to help preserve muscle mass during rapid weight change — not just generic cardio.</p>
+      </div>
+      <div class="prep-card">
+        <h3>Sessions that flex with you</h3>
+        <p>Intensity and volume adjusted week to week based on how you're feeling, energy dips included.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="prep">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Before your first session</p>
+      <h2>Two quick forms, done online</h2>
+      <p>Both take a few minutes and are required before your first session is confirmed.</p>
+    </div>
+    <div class="prep-grid">
+      <div class="prep-card">
+        <h3>Health &amp; Goals Intake</h3>
+        <p>Tell us about your training history, any injuries or limitations, medications (including GLP-1s), and what you're working toward. This shapes your entire plan.</p>
+        <a class="pill-link" href="#">Fill out your intake form</a>
+      </div>
+      <div class="prep-card">
+        <h3>Liability Release</h3>
+        <p>A standard release of liability, signed securely online before your first session. No printing, no scanning.</p>
+        <a class="pill-link" href="#">Sign your waiver</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="booking" id="booking">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Book</p>
+      <h2>Grab a time that works for you</h2>
+      <p>Free 20-minute consult, or go straight to booking a session if you're already a client.</p>
+    </div>
+    <div class="calendly-frame">
+      <strong>Calendly scheduler goes here</strong>
+      <p style="max-width:38ch; margin:0;">This block embeds your live Calendly widget once your account and event types (Consult, Session) are set up.</p>
+    </div>
+  </div>
+</section>
+
+<section id="testimonials">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Client stories</p>
+      <h2>Real progress, real schedules</h2>
+    </div>
+    <div class="testi-row">
+      <div class="testi">
+        <p>"I hadn't set foot in a gym in twenty years and had zero interest in starting now. Training from my living room changed that completely."</p>
+        <div class="who">— Client, Foundations</div>
+      </div>
+      <div class="testi">
+        <p>"My trainer adjusted everything once I started on a GLP-1 — I never would have known to protect my strength the way we did."</p>
+        <div class="who">— Client, Momentum</div>
+      </div>
+      <div class="testi">
+        <p>"The intake process alone made me feel like this was going to be built around me, not a generic plan."</p>
+        <div class="who">— Client, Full Support</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="brand" style="font-size:19px;">real<span style="color:var(--gold);">.</span> Fitness</div>
+      <p class="fine">Building strength for the life you live.<br>Replace this footer with your real contact details and social links.</p>
+    </div>
+    <div>
+      <p class="fine">© 2026 real. Fitness. Placeholder content — update copy, pricing, and testimonials before launch.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
