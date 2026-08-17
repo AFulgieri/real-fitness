@@ -77,6 +77,7 @@
     font-weight:600; font-size:15px; text-decoration:none; display:inline-block;
     transition:transform .15s, box-shadow .2s;
     box-shadow:0 6px 18px rgba(176,82,58,0.28);
+    border:none; cursor:pointer;
   }
   .btn-primary:hover{transform:translateY(-2px); box-shadow:0 10px 22px rgba(176,82,58,0.34);}
   .btn-secondary{
@@ -92,7 +93,7 @@
     opacity:0; transform:translateY(24px);
     animation:rise .6s cubic-bezier(.2,.8,.2,1) forwards;
   }
-  .stat-block .num{font-family:'Fraunces',serif; font-weight:700; font-size:44px; line-height:1;}
+  .stat-block .num{font-family:'Fraunces',serif; font-weight:700; font-size:40px; line-height:1;}
   .stat-block .lbl{font-size:13px; font-weight:600; margin-top:8px; text-transform:uppercase; letter-spacing:.06em;}
   .stat-a{
     background:var(--sienna); color:var(--cream);
@@ -124,7 +125,7 @@
   .section-head h2{font-size:clamp(28px,3.4vw,38px); color:var(--plum); margin-top:10px;}
   .section-head p{color:#5a4f4a; margin-top:14px; font-size:16.5px;}
 
-  /* HOW IT WORKS - real sequence, numbers earned */
+  /* HOW IT WORKS */
   .steps{display:grid; grid-template-columns:repeat(4,1fr); gap:0; position:relative;}
   .steps::before{
     content:""; position:absolute; top:26px; left:6%; right:6%; height:1.5px;
@@ -140,40 +141,48 @@
   .step p{font-size:14.5px; color:#5a4f4a;}
   @media (max-width:860px){ .steps{grid-template-columns:1fr; gap:36px;} .steps::before{display:none;} }
 
-  /* TRAINERS */
-  .trainers{display:grid; grid-template-columns:1fr 1fr; gap:28px;}
+  /* TRAINER — single trainer, centered */
+  .trainer-wrap{display:flex; justify-content:center;}
   .trainer-card{
-    background:var(--cream); border:1px solid var(--line); border-radius:22px; overflow:hidden;
-    display:grid; grid-template-columns:180px 1fr;
+    background:var(--cream); border:1px solid var(--line); border-radius:24px; overflow:hidden;
+    display:grid; grid-template-columns:220px 1fr; max-width:720px; box-shadow:0 14px 34px rgba(42,34,32,0.08);
   }
   .trainer-photo{
-    background:var(--sand); display:flex; align-items:center; justify-content:center;
-    color:#a89a92; font-size:13px; font-weight:600; text-align:center; padding:16px;
-    border-right:1px solid var(--line);
+    background:linear-gradient(155deg, var(--plum) 0%, var(--sienna) 100%);
+    display:flex; align-items:center; justify-content:center;
+    padding:16px;
   }
-  .trainer-photo img{width:100%; height:100%; object-fit:cover; display:block;}
-  .trainer-body{padding:26px 24px;}
-  .trainer-body h3{color:var(--plum); font-size:20px;}
-  .trainer-role{color:var(--sienna); font-size:12.5px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; margin:6px 0 12px;}
-  .trainer-body p{font-size:14px; color:#5a4f4a;}
-  @media (max-width:860px){
-    .trainers{grid-template-columns:1fr;}
-    .trainer-card{grid-template-columns:1fr;}
-    .trainer-photo{border-right:none; border-bottom:1px solid var(--line); height:160px;}
+  .monogram{
+    font-family:'Fraunces',serif; font-weight:600; font-size:52px; color:var(--sand);
+    letter-spacing:0.02em;
   }
+  .trainer-body{padding:34px 32px;}
+  .trainer-body h3{color:var(--plum); font-size:23px;}
+  .trainer-role{color:var(--sienna); font-size:12.5px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; margin:6px 0 14px;}
+  .trainer-body p{font-size:15px; color:#5a4f4a;}
+  @media (max-width:640px){
+    .trainer-card{grid-template-columns:1fr; max-width:420px;}
+    .trainer-photo{height:160px;}
+  }
+
   .services-band{background:var(--plum); color:var(--sand);}
   .services-band .section-head p{color:#d9c9c2;}
   .services-band .eyebrow{color:var(--gold);}
-  .cards{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
-  .card{
-    background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.14); border-radius:18px;
-    padding:32px 28px; transition:transform .2s, background .2s;
+  .plan-grid{display:grid; grid-template-columns:1.3fr 1fr; gap:24px; align-items:stretch;}
+  .plan-card{
+    background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.14); border-radius:20px;
+    padding:38px 34px;
   }
-  .card:hover{transform:translateY(-4px); background:rgba(255,255,255,0.09);}
-  .card h3{color:var(--gold); font-size:20px; margin-bottom:10px;}
-  .card p{font-size:14.5px; color:#e6dcd6;}
-  .card .price{margin-top:16px; font-weight:600; font-size:13px; letter-spacing:.03em; color:#c9b6ae; text-transform:uppercase;}
-  @media (max-width:860px){ .cards{grid-template-columns:1fr;} }
+  .plan-primary{border:1.5px solid var(--gold); background:rgba(216,164,72,0.07);}
+  .plan-card h3{color:var(--gold); font-size:23px; margin-bottom:6px;}
+  .plan-card .plan-sub{font-size:12.5px; font-weight:600; text-transform:uppercase; letter-spacing:.06em; color:#c9b6ae; margin-bottom:16px;}
+  .plan-card ul{margin:0; padding:0 0 0 20px; font-size:15px; color:#e6dcd6;}
+  .plan-card ul li{margin-bottom:9px;}
+  .plan-card p{font-size:14.5px; color:#e6dcd6;}
+  .plan-note{margin-top:28px; text-align:center; color:#d9c9c2; font-size:14.5px;}
+  .plan-note a{color:var(--gold); font-weight:600; text-decoration:none;}
+  .plan-note a:hover{text-decoration:underline;}
+  @media (max-width:860px){ .plan-grid{grid-template-columns:1fr;} }
 
   /* FORMS + WAIVER */
   .prep-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
@@ -187,21 +196,31 @@
   .pill-link:hover:after{transform:translateX(3px);}
   @media (max-width:860px){ .prep-grid{grid-template-columns:1fr;} }
 
+  .form-field{display:grid; gap:6px;}
+  .form-field label{font-weight:600; font-size:14px; color:var(--plum);}
+  .form-field input, .form-field textarea{
+    padding:12px 14px; border-radius:10px; border:1px solid var(--line);
+    font-family:inherit; font-size:15px; background:var(--cream);
+  }
+  .form-field textarea{resize:vertical;}
+  .waiver-text{
+    background:var(--cream); border:1px solid var(--line); border-radius:14px; padding:22px 24px;
+    font-size:14px; color:#5a4f4a; max-height:260px; overflow-y:auto; margin-bottom:22px;
+  }
+  .waiver-text p{margin:0 0 12px;}
+  .waiver-text p:last-child{margin-bottom:0;}
+  .checkbox-row{display:flex; align-items:flex-start; gap:10px; font-size:14.5px; color:#4a3f3b;}
+  .checkbox-row input{margin-top:4px;}
+
   /* BOOKING */
   .booking{background:var(--sand);}
-  .calendly-frame{
-    background:var(--cream); border:1px dashed var(--sienna); border-radius:18px;
-    min-height:640px; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:10px;
-    text-align:center; padding:40px; color:#7a6d67;
-  }
-  .calendly-frame strong{color:var(--plum); font-family:'Fraunces',serif; font-size:20px; font-weight:600;}
 
-  /* TESTIMONIALS */
-  .testi-row{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
-  .testi{background:var(--cream); border:1px solid var(--line); border-radius:18px; padding:28px;}
-  .testi p{font-size:15px; color:#4a3f3b; font-style:italic;}
-  .testi .who{margin-top:16px; font-size:13.5px; font-weight:600; color:var(--plum); font-style:normal;}
-  @media (max-width:860px){ .testi-row{grid-template-columns:1fr;} }
+  /* REVIEWS */
+  .reviews-card{
+    max-width:560px; margin:0 auto; text-align:center; background:var(--cream);
+    border:1px solid var(--line); border-radius:20px; padding:44px 40px;
+  }
+  .reviews-card p{color:#5a4f4a; font-size:15.5px; margin:14px 0 26px;}
 
   /* FOOTER */
   footer{background:var(--ink); color:#cfc4bd; padding:56px 0 32px;}
@@ -212,7 +231,7 @@
   ::selection{background:var(--gold); color:var(--ink);}
   :focus-visible{outline:2px solid var(--sienna); outline-offset:3px;}
   @media (prefers-reduced-motion: reduce){
-    .arc-path, .arc-dot{animation:none !important; stroke-dashoffset:0 !important; opacity:1 !important;}
+    .stat-block{animation:none !important; opacity:1 !important; transform:none !important;}
   }
 </style>
 </head>
@@ -222,12 +241,12 @@
   <div class="wrap">
     <div class="brand">real<span>.</span> Fitness</div>
     <div class="navlinks">
-      <a href="#services">Services</a>
-      <a href="#trainers">Trainers</a>
+      <a href="#program">Program</a>
+      <a href="#trainer">Trainer</a>
       <a href="#glp1">GLP-1 Support</a>
       <a href="#how">How it works</a>
       <a href="#prep">Getting started</a>
-      <a href="#testimonials">Stories</a>
+      <a href="#reviews">Reviews</a>
     </div>
     <a class="navcta" href="#booking">Book a consult</a>
   </div>
@@ -238,10 +257,10 @@
     <div>
       <p class="eyebrow">Real Exercise for Active Living</p>
       <h1>Building strength for the <em>life you live.</em></h1>
-      <p class="lead">Real, one-on-one training — from home, on your schedule, with no gym floor to walk onto. Built for women who want a program shaped around their actual body, history, and goals, including women navigating GLP-1 medications.</p>
+      <p class="lead">Real, personal coaching — from home, on your schedule, with no gym floor to walk onto. A monthly program built around your body, your history, and your goals, with room for group support, live classes, and a coach who checks in every week.</p>
       <div class="hero-ctas">
         <a class="btn-primary" href="#booking">Book your free consult</a>
-        <a class="btn-secondary" href="#services">See services</a>
+        <a class="btn-secondary" href="#program">See the program</a>
       </div>
     </div>
     <div class="stat-stack" aria-hidden="true">
@@ -250,39 +269,31 @@
         <div class="lbl">Virtual — train from home</div>
       </div>
       <div class="stat-block stat-b">
-        <div class="num">1:1</div>
-        <div class="lbl">Coaching, every session</div>
+        <div class="num">Weekly</div>
+        <div class="lbl">1:1 check-ins, every month</div>
       </div>
       <div class="stat-block stat-c">
         <div class="num">GLP‑1</div>
-        <div class="lbl">Specialist on staff</div>
+        <div class="lbl">Friendly programming</div>
       </div>
     </div>
   </div>
 </header>
 
-<section id="trainers">
+<section id="trainer">
   <div class="wrap">
     <div class="section-head">
-      <p class="eyebrow">Your coaches</p>
-      <h2>Meet your trainers</h2>
-      <p>Two trainers, one focus: strength training that actually fits your life.</p>
+      <p class="eyebrow">Your coach</p>
+      <h2>Meet your trainer</h2>
+      <p>One trainer, one focus: strength training that actually fits your life.</p>
     </div>
-    <div class="trainers">
+    <div class="trainer-wrap">
       <div class="trainer-card">
-        <div class="trainer-photo"><img src="angela.jpg" alt="Angela Fulgieri" onerror="this.style.display='none'; this.parentElement.innerText='Photo of Angela Fulgieri';"></div>
+        <div class="trainer-photo"><div class="monogram">AF</div></div>
         <div class="trainer-body">
           <h3>Angela Fulgieri</h3>
           <div class="trainer-role">Founder &amp; Personal Trainer</div>
-          <p>Angela brings over 20 years in the fitness industry as a certified group exercise instructor and certified personal trainer. She has led fitness improvement programs on military bases and worked across many gyms leading group exercise classes to help people get stronger, fitter, and more flexible. She's passionate about helping people reach their goals — especially first-time exercisers getting started and staying consistent.</p>
-        </div>
-      </div>
-      <div class="trainer-card">
-        <div class="trainer-photo"><img src="janice.jpg" alt="Janice Diggens" onerror="this.style.display='none'; this.parentElement.innerText='Photo of Janice Diggens';"></div>
-        <div class="trainer-body">
-          <h3>Janice Diggens</h3>
-          <div class="trainer-role">GLP‑1 Specialist &amp; Personal Trainer</div>
-          <p>Janice is a highly experienced personal trainer and group exercise instructor who specializes in training clients navigating weight loss through GLP‑1 medications. She helps clients protect strength and muscle while adjusting programming to match their changing energy and needs.</p>
+          <p>Angela brings over 20 years in the fitness industry as a certified group exercise instructor and certified personal trainer. She has led fitness improvement programs on military bases and worked across many gyms leading group exercise classes to help people get stronger, fitter, and more flexible. She's passionate about helping people reach their goals — especially first-time exercisers getting started and staying consistent, including women navigating GLP-1 medications.</p>
         </div>
       </div>
     </div>
@@ -315,37 +326,39 @@
       <div class="step">
         <div class="num">4</div>
         <h3>Start training</h3>
-        <p>Book recurring sessions directly on the calendar and get moving.</p>
+        <p>Join the program and get moving, with your first check-in on the calendar.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="services-band" id="services">
+<section class="services-band" id="program">
   <div class="wrap">
     <div class="section-head">
-      <p class="eyebrow">Services</p>
-      <h2>Coaching built around your goals</h2>
-      <p>Every package includes live 1:1 coaching, a custom plan, and check-ins between sessions.</p>
+      <p class="eyebrow">The program</p>
+      <h2>One program, built around you</h2>
+      <p>A single monthly membership — no tiers to compare, no guessing which package fits.</p>
     </div>
-    <div class="cards">
-      <div class="card">
-        <h3>Foundations</h3>
-        <p>For anyone new to strength training or coming back after time off. Focus on form, consistency, and building confidence.</p>
-        <div class="price">4 sessions / month — $120/mo</div>
+    <div class="plan-grid">
+      <div class="plan-card plan-primary">
+        <h3>Monthly Training Program</h3>
+        <div class="plan-sub">1:1 coaching + community</div>
+        <ul>
+          <li>Personalized programming built around your body, history, and goals</li>
+          <li>Weekly 1:1 check-ins to track progress and adjust your plan</li>
+          <li>Access to live group classes</li>
+          <li>Group support from other members in the program</li>
+          <li>Fun monthly challenges to keep things engaging</li>
+          <li>Programming that flexes for women navigating GLP-1 medications</li>
+        </ul>
       </div>
-      <div class="card">
-        <h3>Momentum</h3>
-        <p>Progressive strength programming for clients ready to push toward a specific goal.</p>
-        <div class="price">8 sessions / month — $289/mo</div>
-      </div>
-      <div class="card">
-        <h3>Full Support</h3>
-        <p>Unlimited messaging, nutrition check-ins or full meal plan, and weekly live sessions for clients who want a true training partner.</p>
-        <div class="price">8-12 sessions / month - Pricing varies  </div>
+      <div class="plan-card">
+        <h3>Nutritional Support</h3>
+        <div class="plan-sub">Optional add-on</div>
+        <p>After a one-on-one consultation to determine your unique needs, nutritional support can be added alongside your training program.</p>
       </div>
     </div>
-    <p style="text-align:center; margin-top:32px; color:#e6dcd6; font-size:14.5px;">Ask about eating plans.</p>
+    <p class="plan-note">Pricing and details are shared during your free consult. <a href="#booking">Book yours →</a></p>
   </div>
 </section>
 
@@ -354,7 +367,7 @@
     <div class="section-head">
       <p class="eyebrow">Specialized support</p>
       <h2>Training for women on GLP-1 medications</h2>
-      <p>Rapid weight loss changes what your body needs from a workout. Your program is adjusted for energy levels, and built to protect strength and muscle while the medication does its part.</p>
+      <p>Rapid weight loss changes what your body needs from a workout. The mission is the same as it's always been — your program is adjusted for energy levels and built to protect strength and muscle while the medication does its part.</p>
     </div>
     <div class="prep-grid">
       <div class="prep-card">
@@ -385,7 +398,7 @@
       <div class="prep-card">
         <h3>Liability Release</h3>
         <p>A standard release of liability, signed securely online before your first session. No printing, no scanning.</p>
-        <a class="pill-link" href="#">Sign your waiver</a>
+        <a class="pill-link" href="#waiver">Sign your waiver</a>
       </div>
     </div>
   </div>
@@ -398,37 +411,78 @@
       <h2>Tell us about you</h2>
       <p>Takes about 5 minutes. We'll use this to shape your training plan.</p>
     </div>
-    <form class="intake-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" style="max-width:640px; margin:0 auto; display:grid; gap:18px;">
-      <div style="display:grid; gap:6px;">
-        <label for="i-name" style="font-weight:600; font-size:14px; color:var(--plum);">Full name</label>
-        <input id="i-name" name="Full name" type="text" required style="padding:12px 14px; border-radius:10px; border:1px solid var(--line); font-family:inherit; font-size:15px;">
+    <form class="intake-form" action="https://formspree.io/lmi60003828@gmail.com" method="POST" style="max-width:640px; margin:0 auto; display:grid; gap:18px;">
+      <input type="hidden" name="_subject" value="New Intake Form Submission — real. Fitness">
+      <div class="form-field">
+        <label for="i-name">Full name</label>
+        <input id="i-name" name="Full name" type="text" required>
       </div>
-      <div style="display:grid; gap:6px;">
-        <label for="i-email" style="font-weight:600; font-size:14px; color:var(--plum);">Email</label>
-        <input id="i-email" name="Email" type="email" required style="padding:12px 14px; border-radius:10px; border:1px solid var(--line); font-family:inherit; font-size:15px;">
+      <div class="form-field">
+        <label for="i-email">Email</label>
+        <input id="i-email" name="Email" type="email" required>
       </div>
-      <div style="display:grid; gap:6px;">
-        <label for="i-phone" style="font-weight:600; font-size:14px; color:var(--plum);">Phone</label>
-        <input id="i-phone" name="Phone" type="tel" style="padding:12px 14px; border-radius:10px; border:1px solid var(--line); font-family:inherit; font-size:15px;">
+      <div class="form-field">
+        <label for="i-phone">Phone</label>
+        <input id="i-phone" name="Phone" type="tel">
       </div>
-      <div style="display:grid; gap:6px;">
-        <label for="i-history" style="font-weight:600; font-size:14px; color:var(--plum);">Training history</label>
-        <textarea id="i-history" name="Training history" rows="3" style="padding:12px 14px; border-radius:10px; border:1px solid var(--line); font-family:inherit; font-size:15px; resize:vertical;"></textarea>
+      <div class="form-field">
+        <label for="i-history">Training history</label>
+        <textarea id="i-history" name="Training history" rows="3"></textarea>
       </div>
-      <div style="display:grid; gap:6px;">
-        <label for="i-injuries" style="font-weight:600; font-size:14px; color:var(--plum);">Injuries or limitations</label>
-        <textarea id="i-injuries" name="Injuries or limitations" rows="3" style="padding:12px 14px; border-radius:10px; border:1px solid var(--line); font-family:inherit; font-size:15px; resize:vertical;"></textarea>
+      <div class="form-field">
+        <label for="i-injuries">Injuries or limitations</label>
+        <textarea id="i-injuries" name="Injuries or limitations" rows="3"></textarea>
       </div>
-      <div style="display:grid; gap:6px;">
-        <label for="i-meds" style="font-weight:600; font-size:14px; color:var(--plum);">Current medications (including GLP-1s, if any)</label>
-        <textarea id="i-meds" name="Medications" rows="2" style="padding:12px 14px; border-radius:10px; border:1px solid var(--line); font-family:inherit; font-size:15px; resize:vertical;"></textarea>
+      <div class="form-field">
+        <label for="i-meds">Current medications (including GLP-1s, if any)</label>
+        <textarea id="i-meds" name="Medications" rows="2"></textarea>
       </div>
-      <div style="display:grid; gap:6px;">
-        <label for="i-goals" style="font-weight:600; font-size:14px; color:var(--plum);">What are you working toward?</label>
-        <textarea id="i-goals" name="Goals" rows="3" style="padding:12px 14px; border-radius:10px; border:1px solid var(--line); font-family:inherit; font-size:15px; resize:vertical;"></textarea>
+      <div class="form-field">
+        <label for="i-nutrition">Interested in nutritional support add-on?</label>
+        <input id="i-nutrition" name="Interested in nutritional support" type="text" placeholder="Yes / No / Tell me more">
       </div>
-      <button type="submit" class="btn-primary" style="border:none; cursor:pointer; justify-self:start;">Submit intake form</button>
+      <div class="form-field">
+        <label for="i-goals">What are you working toward?</label>
+        <textarea id="i-goals" name="Goals" rows="3"></textarea>
+      </div>
+      <button type="submit" class="btn-primary" style="justify-self:start;">Submit intake form</button>
     </form>
+  </div>
+</section>
+
+<section id="waiver">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Liability Release</p>
+      <h2>Sign your waiver</h2>
+      <p>Please read the release below, then complete the form to sign electronically.</p>
+    </div>
+    <div style="max-width:640px; margin:0 auto;">
+      <div class="waiver-text">
+        <p><strong>Assumption of Risk &amp; Release of Liability</strong></p>
+        <p>I understand that participation in personal training sessions, group classes, and fitness challenges offered by real. Fitness ("the Program") involves physical exertion and carries inherent risks of injury. I voluntarily assume all such risks.</p>
+        <p>I confirm that I have disclosed any known injuries, medical conditions, or medications (including GLP-1 medications) that may affect my ability to safely participate, and that I am physically fit to take part in this Program.</p>
+        <p>In consideration of being allowed to participate, I release Angela Fulgieri and real. Fitness from any and all claims, liabilities, or damages arising from my participation, except in cases of gross negligence.</p>
+        <p>I understand this Program is not a substitute for medical advice, and I will consult my physician with any health concerns before beginning or continuing training.</p>
+        <p style="font-size:12.5px; color:#8a7d76;">This is placeholder waiver language for template purposes only. Please have this reviewed and finalized by an attorney licensed in your state before publishing.</p>
+      </div>
+      <form class="waiver-form" action="https://formspree.io/lmi60003828@gmail.com" method="POST" style="display:grid; gap:18px;">
+        <input type="hidden" name="_subject" value="New Signed Waiver — real. Fitness">
+        <div class="form-field">
+          <label for="w-name">Full legal name (this serves as your signature)</label>
+          <input id="w-name" name="Signature (typed name)" type="text" required>
+        </div>
+        <div class="form-field">
+          <label for="w-date">Date</label>
+          <input id="w-date" name="Date" type="date" required>
+        </div>
+        <div class="checkbox-row">
+          <input id="w-agree" type="checkbox" name="Agreement" value="I have read and agree to the release above" required>
+          <label for="w-agree">I have read and agree to the assumption of risk and release of liability above.</label>
+        </div>
+        <button type="submit" class="btn-primary" style="justify-self:start;">Sign &amp; submit waiver</button>
+      </form>
+    </div>
   </div>
 </section>
 
@@ -439,32 +493,19 @@
       <h2>Grab a time that works for you</h2>
       <p>Free 20-minute consult, or go straight to booking a session if you're already a client.</p>
     </div>
-    <div class="calendly-frame">
-      <strong>Calendly scheduler goes here</strong>
-      <p style="max-width:38ch; margin:0;">This block embeds your live Calendly widget once your account and event types (Consult, Session) are set up.</p>
+    <div style="border-radius:18px; overflow:hidden; border:1px solid var(--line);">
+      <iframe src="https://calendly.com/angelafulgieri" width="100%" height="700" frameborder="0" title="Book a consult with Angela Fulgieri"></iframe>
     </div>
   </div>
 </section>
 
-<section id="testimonials">
+<section id="reviews">
   <div class="wrap">
-    <div class="section-head">
+    <div class="reviews-card">
       <p class="eyebrow">Client stories</p>
       <h2>Real progress, real schedules</h2>
-    </div>
-    <div class="testi-row">
-      <div class="testi">
-        <p>"I hadn't set foot in a gym in twenty years and had zero interest in starting now. Training from my living room changed that completely."</p>
-        <div class="who">— Client, Foundations</div>
-      </div>
-      <div class="testi">
-        <p>"My trainer adjusted everything once I started on a GLP-1 — I never would have known to protect my strength the way we did."</p>
-        <div class="who">— Client, Momentum</div>
-      </div>
-      <div class="testi">
-        <p>"The intake process alone made me feel like this was going to be built around me, not a generic plan."</p>
-        <div class="who">— Client, Full Support</div>
-      </div>
+      <p>See what clients are saying about training with real. Fitness.</p>
+      <a class="btn-primary" href="https://www.google.com/search?q=real.+Fitness+Angela+Fulgieri+reviews" target="_blank" rel="noopener">Read client reviews</a>
     </div>
   </div>
 </section>
@@ -476,10 +517,14 @@
       <p class="fine">Building strength for the life you live.<br> https://www.linkedin.com/in/angela-fulgieri/ </p>
     </div>
     <div>
-      <p class="fine">© 2026 real. Fitness. Placeholder content — update copy, pricing, and testimonials before launch.</p>
+      <p class="fine">© 2026 real. Fitness.</p>
     </div>
   </div>
 </footer>
 
 </body>
 </html>
+Sent from my iPhone
+
+
+
